@@ -1,4 +1,4 @@
-package com.example.financetracker
+package com.app.financetracker
 
 import org.junit.Test
 

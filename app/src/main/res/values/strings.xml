@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Finance Tracker</string>
+    <string name="placeholder_message">Your transactions will appear here.</string>
 </resources>

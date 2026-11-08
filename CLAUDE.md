@@ -47,7 +47,7 @@ debit/credit), and stores them ON THE DEVICE ONLY. Target market: Sri Lanka firs
 
 ## Current status
 <!-- Update this section as the project progresses -->
-- [ ] Project skeleton with 3 modules
+- [x] Project skeleton with 3 modules
 - [ ] SMS permission flow + read inbox filtered by sender allowlist
 - [ ] Parser for first bank + fixtures
 - [ ] Transaction list + monthly total screen
