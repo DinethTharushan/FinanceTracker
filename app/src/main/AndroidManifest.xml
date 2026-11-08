@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Used only to read messages from allowlisted bank senders. See SenderAllowlist. -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!-- The app only works from SMS, so keep it off devices that can't receive them. -->
+    <uses-feature android:name="android.hardware.telephony" android:required="true" />
+
     <!-- Data never leaves the device: allowBackup="false" disables backup below API 31,
          and data_extraction_rules also blocks device transfer on API 31+, so no
          fullBackupContent is needed. -->

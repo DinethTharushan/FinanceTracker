@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.app.financetracker.data.db.FinanceDatabase
-import com.app.financetracker.ui.PlaceholderScreen
+import com.app.financetracker.ui.inbox.InboxScreen
 import com.app.financetracker.ui.theme.FinanceTrackerTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FinanceTrackerTheme {
-                PlaceholderScreen()
+                InboxScreen()
             }
         }
     }

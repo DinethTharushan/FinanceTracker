@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Finance Tracker</string>
-    <string name="placeholder_message">Your transactions will appear here.</string>
+
+    <string name="sms_permission_title">Read your bank SMS</string>
+    <string name="sms_permission_rationale">Finance Tracker builds your expense list from the transaction alerts your bank sends by SMS.\n\n• Only messages from known bank senders are read. All other messages are ignored.\n• Your messages stay on this phone. Nothing is uploaded.</string>
+    <string name="sms_permission_allow">Allow SMS access</string>
+    <string name="sms_permission_denied">Without SMS access, Finance Tracker can\'t find your bank alerts.\n\nOnly messages from known bank senders are read, and they never leave this phone.</string>
+    <string name="sms_permission_try_again">Try again</string>
+    <string name="sms_permission_off_title">SMS access is turned off</string>
+    <string name="sms_permission_permanently_denied">To allow it, open Settings, tap Permissions, then SMS, and choose Allow.\n\nOnly messages from known bank senders are read, and they never leave this phone.</string>
+    <string name="sms_permission_open_settings">Open settings</string>
+
+    <string name="inbox_empty">No messages from your bank yet.</string>
 </resources>
