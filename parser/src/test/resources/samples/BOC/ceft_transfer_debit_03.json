@@ -1,0 +1,17 @@
+{
+  "sender": "BOC",
+  "receivedAt": "2026-11-01T17:00:00Z",
+  "expected": {
+    "result": "SUCCESS",
+    "transaction": {
+      "amountMinor": 502500,
+      "currency": "LKR",
+      "type": "DEBIT",
+      "merchant": null,
+      "accountSuffix": "533",
+      "dateTime": "2026-11-01T17:00:00Z",
+      "balanceAfterMinor": 9080759,
+      "description": "CEFT Transfer Debit"
+    }
+  }
+}

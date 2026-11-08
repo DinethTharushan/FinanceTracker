@@ -1,0 +1,17 @@
+{
+  "sender": "BOC",
+  "receivedAt": "2026-11-01T10:00:00Z",
+  "expected": {
+    "result": "SUCCESS",
+    "transaction": {
+      "amountMinor": 120000,
+      "currency": "LKR",
+      "type": "CREDIT",
+      "merchant": null,
+      "accountSuffix": "533",
+      "dateTime": "2026-11-01T10:00:00Z",
+      "balanceAfterMinor": 15436459,
+      "description": "Transfer Credit"
+    }
+  }
+}

@@ -8,7 +8,7 @@ debit/credit), and stores them ON THE DEVICE ONLY. Target market: Sri Lanka firs
 ## Non-negotiable rules
 - Raw SMS never leaves the device. No network calls with SMS content. No analytics on message text.
 - Only process messages from known bank sender IDs (allowlist in `parser/senders`). Ignore all other SMS — never read, log, or store them.
-- Never log full SMS bodies or account numbers in Logcat. Mask account numbers (show last 4 only).
+- Never log full SMS bodies or account numbers in Logcat. Mask account numbers (never show more than the last 4 digits).
 - Do not add new dependencies without asking first.
 - Do not change the database schema without writing a Room migration.
 
@@ -49,7 +49,7 @@ debit/credit), and stores them ON THE DEVICE ONLY. Target market: Sri Lanka firs
 <!-- Update this section as the project progresses -->
 - [x] Project skeleton with 3 modules
 - [ ] SMS permission flow + read inbox filtered by sender allowlist
-- [ ] Parser for first bank + fixtures
+- [x] Parser for first bank + fixtures (BOC)
 - [ ] Transaction list + monthly total screen
 - [ ] Live SMS receiver
 - [ ] Categories + user corrections
