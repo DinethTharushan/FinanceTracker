@@ -19,4 +19,10 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): FinanceDatabase =
         Room.databaseBuilder(context, FinanceDatabase::class.java, DATABASE_NAME).build()
+
+    @Provides
+    fun provideTransactionDao(database: FinanceDatabase): TransactionDao = database.transactionDao()
+
+    @Provides
+    fun provideAppMetaDao(database: FinanceDatabase): AppMetaDao = database.appMetaDao()
 }

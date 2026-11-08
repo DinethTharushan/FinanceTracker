@@ -15,14 +15,15 @@ import javax.inject.Inject
  * Reads the SMS inbox, limited to allowlisted senders.
  *
  * Privacy: the sender filter is applied in the provider query, so other messages never
- * reach the app. Bodies are cut to a short preview right away, and nothing here is
- * logged or stored.
+ * reach the app. Full bodies are returned for parsing only; nothing here is logged or
+ * stored.
  */
 class SmsInboxReader @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
 
-    suspend fun readAllowlisted(): InboxReadResult = withContext(Dispatchers.IO) {
+    /** Every allowlisted inbox message, newest first. */
+    suspend fun readAllowlistedForImport(): InboxReadResult = withContext(Dispatchers.IO) {
         if (context.checkSelfPermission(Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
             return@withContext InboxReadResult.PermissionMissing
         }
@@ -37,22 +38,20 @@ class SmsInboxReader @Inject constructor(
                 senders,
                 "${Telephony.Sms.DATE} DESC",
             )?.use { cursor ->
-                val idCol = cursor.getColumnIndexOrThrow(Telephony.Sms._ID)
                 val addressCol = cursor.getColumnIndexOrThrow(Telephony.Sms.ADDRESS)
                 val dateCol = cursor.getColumnIndexOrThrow(Telephony.Sms.DATE)
                 val bodyCol = cursor.getColumnIndexOrThrow(Telephony.Sms.BODY)
 
                 buildList {
-                    while (size < MAX_MESSAGES && cursor.moveToNext()) {
+                    while (cursor.moveToNext()) {
                         val address = cursor.getString(addressCol)
                         // Second safeguard in case the provider ever ignores the selection.
-                        if (!SenderAllowlist.isAllowed(address)) continue
+                        if (address == null || !SenderAllowlist.isAllowed(address)) continue
                         add(
-                            SmsPreview(
-                                id = cursor.getLong(idCol),
+                            RawSms(
                                 sender = address,
                                 receivedAt = Instant.ofEpochMilli(cursor.getLong(dateCol)),
-                                preview = previewOf(cursor.getString(bodyCol)),
+                                body = cursor.getString(bodyCol).orEmpty(),
                             ),
                         )
                     }
@@ -66,10 +65,7 @@ class SmsInboxReader @Inject constructor(
     }
 
     private companion object {
-        const val MAX_MESSAGES = 500
-
         val PROJECTION = arrayOf(
-            Telephony.Sms._ID,
             Telephony.Sms.ADDRESS,
             Telephony.Sms.DATE,
             Telephony.Sms.BODY,

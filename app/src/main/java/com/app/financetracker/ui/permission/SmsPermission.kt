@@ -1,4 +1,4 @@
-package com.app.financetracker.ui.inbox
+package com.app.financetracker.ui.permission
 
 import android.Manifest
 import android.app.Activity

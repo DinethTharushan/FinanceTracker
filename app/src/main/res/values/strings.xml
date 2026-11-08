@@ -10,5 +10,11 @@
     <string name="sms_permission_permanently_denied">To allow it, open Settings, tap Permissions, then SMS, and choose Allow.\n\nOnly messages from known bank senders are read, and they never leave this phone.</string>
     <string name="sms_permission_open_settings">Open settings</string>
 
-    <string name="inbox_empty">No messages from your bank yet.</string>
+    <string name="transactions_title">Transactions</string>
+    <string name="rescan">Rescan</string>
+    <string name="spent_in_month">Spent in %1$s</string>
+    <string name="transactions_empty">No transactions yet.\n\nWhen your bank sends a transaction alert, tap Rescan to add it.</string>
+    <string name="transaction_unknown">Transaction</string>
+    <string name="import_result">Scan done. New: %1$d · Couldn\'t read: %2$d</string>
+    <string name="import_permission_missing">SMS access is off, so nothing was scanned.</string>
 </resources>

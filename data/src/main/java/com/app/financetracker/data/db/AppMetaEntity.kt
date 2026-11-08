@@ -3,10 +3,7 @@ package com.app.financetracker.data.db
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-/**
- * Placeholder table: Room rejects a database with no entities. Keep it as a small
- * key/value store or replace it when the first real table is added.
- */
+/** Small key/value store for app state, e.g. whether the first inbox import ran. */
 @Entity(tableName = "app_meta")
 data class AppMetaEntity(
     @PrimaryKey val key: String,

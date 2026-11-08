@@ -48,9 +48,9 @@ debit/credit), and stores them ON THE DEVICE ONLY. Target market: Sri Lanka firs
 ## Current status
 <!-- Update this section as the project progresses -->
 - [x] Project skeleton with 3 modules
-- [ ] SMS permission flow + read inbox filtered by sender allowlist
+- [x] SMS permission flow + read inbox filtered by sender allowlist
 - [x] Parser for first bank + fixtures (BOC)
-- [ ] Transaction list + monthly total screen
+- [x] Transaction list + monthly total screen (inbox import into Room, dedup by SMS hash)
 - [ ] Live SMS receiver
 - [ ] Categories + user corrections
 - [ ] "Needs review" inbox

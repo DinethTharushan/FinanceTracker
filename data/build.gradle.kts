@@ -28,7 +28,8 @@ room {
 }
 
 dependencies {
-    implementation(project(":parser"))
+    // api: repository results expose parser model types (Transaction) to :app.
+    api(project(":parser"))
 
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
@@ -39,4 +40,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.room.testing)
 }
